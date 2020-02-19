@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <title>Contact List</title>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="header">Add Contact</h3>
+    <form id="contact-form">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" class="u-full-width" type="text">
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input id="phone" class="u-full-width" type="text">
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input id="email" class="u-full-width" type="email">
+      </div>
+      <div>
+        <input id="submit-btn" class="button-primary u-full-width" type="submit" value="Submit">
+      </div>
+    </form>
+    <hr>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Email Address</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="contact-list">
+        <!-- add via UI -->
+      </tbody>
+    </table>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
