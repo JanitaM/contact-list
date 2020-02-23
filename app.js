@@ -5,7 +5,8 @@ const
   email = document.getElementById("email"),
   submitBtn = document.getElementById("submit-btn"),
   contacts = document.getElementById("contact-list"),
-  searchInput = document.getElementById("search");
+  searchInput = document.getElementById("search"),
+  header = document.querySelector(".header");
 
 // Class Constructors
 // Contact List
@@ -19,6 +20,8 @@ class Contact {
 
 // Functions
 const addContact = e => {
+  // Reset header
+  header.innerHTML = "Add Contact";
   // If any inputs are empty, call alert function
   if (name.value === "" || phone.value === "" || email.value === "") {
     alertMessage("Please Enter All Values", "error");
@@ -64,11 +67,8 @@ const alertMessage = (message, className) => {
   alertDiv.innerHTML = `${message}`;
   // Variable for the container (parent)
   const container = document.querySelector(".container");
-  // Variable for h1 tag
-  const header = document.querySelector(".header");
   // Insert above h1 tag
   container.insertBefore(alertDiv, header);
-
   // Remove after 2 seconds
   setTimeout(() => document.querySelector(`.${className}`).remove(), 2000);
 }
@@ -85,23 +85,30 @@ const deleteContact = e => {
   if (e.target.className === "delete-btn") {
     e.target.parentElement.parentElement.remove();
   }
-  // Show success message
+  // Show success message - BUG: showing alert message for edit as well
   alertMessage("Contact Removed", "success");
 
   e.preventDefault();
 }
 
-// eventually, connect to backend
+// eventually, connect to backend. This works but it's awkward
 const editContact = e => {
   // Target contact list?
   if (e.target.className === "edit-btn") {
-    // e.target.parentElement.parentElement.remove();
-    // do something
-    console.log(`edit btn`)
+    // change header to "edit contact" 
+    header.innerHTML = "Edit Contact";
+    // populate the add contact inputs
+    name.value = e.target.parentElement.parentElement.firstChild.nextElementSibling.innerText;
+    phone.value = e.target.parentElement.parentElement.firstChild.nextSibling.nextElementSibling.innerText;
+    email.value = e.target.parentElement.parentElement.firstChild.nextSibling.nextSibling.nextSibling.nextElementSibling.innerText;
+    // user types in new info, hits submit, new contact added
+    // add a new contact
+    // Delete old contact
+    e.target.parentElement.parentElement.remove();
   }
-  // Show sucess message
-  alertMessage("Contact Updated", "success");
 
+  // Show sucess message - BUG: showing delete message as well
+  alertMessage("Contact Updated", "success");
   e.preventDefault();
 }
 
