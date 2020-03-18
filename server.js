@@ -15,7 +15,6 @@ const
   password = process.env.DB_PASSWORD,
   port = process.env.PORT;
 
-
 const app = express();
 
 mongoose.Promise = global.Promise;
@@ -24,6 +23,8 @@ mongoose.connect(`mongodb+srv://${username}:${password}@cluster0-n7fy6.mongodb.n
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 
 routes(app);
 
