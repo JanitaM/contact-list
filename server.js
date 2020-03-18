@@ -12,8 +12,9 @@ const { routes } = require("./src/routes/contactRoutes");
 
 const
   username = process.env.DB_USERNAME,
-  password = process.env.DB_PASSWORD,
-  port = process.env.PORT;
+  password = process.env.DB_PASSWORD;
+
+const Port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -24,12 +25,12 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 
 routes(app);
 
 const start = () => {
-  return app.listen(port, () => console.log(`server is running on ${port}`));
+  return app.listen(Port, () => console.log(`server is running on ${Port}`));
 }
 
 module.exports = { start }
