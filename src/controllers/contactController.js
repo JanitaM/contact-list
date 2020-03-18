@@ -78,7 +78,7 @@ const deleteContact = async (request, response) => {
 const getLogout = async (request, response) => {
   try {
     console.log("SEND LOG OUT PAGE");
-    response.sendFile(path.join(__dirname + "/../views/logout.html"));
+    response.sendFile(path.join(__dirname, "/../views/logout.html"));
   } catch (error) {
     console.log(error)
     response.status(500).send(error);
@@ -89,9 +89,9 @@ const getLogout = async (request, response) => {
 const getSignin = async (request, response) => {
   try {
     console.log("SEND SIGN IN PAGE");
-    console.log(path.join(__dirname + "/../views/signin.html"));
+    console.log(path.join(__dirname, "/../views/signin.html"));
 
-    response.sendFile(path.join(__dirname + "/../views/signin.html"));
+    response.sendFile(path.join(__dirname, "/../views/signin.html"));
   } catch (error) {
     console.log(error)
     response.status(500).send(error);
