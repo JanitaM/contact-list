@@ -21,7 +21,7 @@ const routes = app => {
   app.route("/")
     .get(getLogout);
 
-  app.route("/pages")
+  app.route("/")
     .get(getSignin);
 }
 
