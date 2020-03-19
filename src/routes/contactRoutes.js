@@ -18,10 +18,10 @@ const routes = app => {
     .get(getContact)
     .delete(deleteContact);
 
-  app.route("/")
+  app.route("/logout")
     .get(getLogout);
 
-  app.route("/")
+  app.route("/signin")
     .get(getSignin);
 }
 

@@ -25,8 +25,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + "/views"));
 
+// Serve static files from here C:\Users\jvmsu\Desktop\working_contactList/src/views
+app.use(express.static(__dirname + "/src/views"));
+
+// Set home page on Heroku to index.html
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/src/views/index.html")));
 
 routes(app);

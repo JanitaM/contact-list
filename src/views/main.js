@@ -54,6 +54,7 @@ class Contact {
 }
 
 // Functions
+// This is loading on all pages...
 function getAllDatabaseContacts() {
   fetch("http://localhost:3000/contacts")
     .then(response => response.json())
@@ -263,7 +264,6 @@ const alertMessage = (message, className) => {
 
 function logOut() {
   var myHeaders = new Headers();
-  myHeaders.append("c", "");
 
   var requestOptions = {
     method: 'GET',
@@ -271,15 +271,16 @@ function logOut() {
     redirect: 'follow'
   };
 
-  fetch("http://localhost:3000", requestOptions)
+  fetch("http://localhost:3000/logout.html", requestOptions)
     .then(response => response.text())
-    .then(result => document.querySelector(".container").innerHTML = result)
+    // .then(result => document.querySelector(".main-container").innerHTML = result)
+    .then(result)
     .catch(error => console.log('error', error));
 }
 
+
 function signIn() {
   var myHeaders = new Headers();
-  myHeaders.append("c", "");
 
   var requestOptions = {
     method: 'GET',
@@ -287,9 +288,9 @@ function signIn() {
     redirect: 'follow'
   };
 
-  // fetch("http://localhost:3000/pages", requestOptions)
-  fetch("http://localhost:3000", requestOptions)
+  fetch("http://localhost:3000/signin.html", requestOptions)
     .then(response => response.text())
-    .then(result => document.querySelector(".container").innerHTML = result)
+    // .then(result => document.querySelector(".main-container").innerHTML = result)
+    .then(result)
     .catch(error => console.log('error', error));
 }
