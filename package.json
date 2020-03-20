@@ -2,7 +2,7 @@
   "name": "contactList",
   "version": "1.0.0",
   "description": "Live preview: https://janitam.github.io/contact-list/",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
