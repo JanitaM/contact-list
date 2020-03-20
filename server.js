@@ -14,8 +14,6 @@ const
   username = process.env.DB_USERNAME,
   password = process.env.DB_PASSWORD;
 
-const Port = process.env.PORT || 3000;
-
 const app = express();
 
 mongoose.Promise = global.Promise;
@@ -34,8 +32,11 @@ app.get("/", (req, res) => res.sendFile(path.join(__dirname, "/src/views/index.h
 
 routes(app);
 
+const Port = process.env.PORT || 3000;
+
 const start = () => {
   return app.listen(Port, () => console.log(`server is running on ${Port}`));
 }
+
 
 module.exports = { start }

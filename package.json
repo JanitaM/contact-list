@@ -2,7 +2,8 @@
   "name": "contactList",
   "version": "1.0.0",
   "description": "Live preview: https://janitam.github.io/contact-list/",
-  "main": "app.js",
+  // "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -23,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mongodb": "^3.5.5",
     "mongoose": "^5.9.3"
   }
 }
